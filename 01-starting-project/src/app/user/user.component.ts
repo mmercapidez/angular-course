@@ -23,6 +23,5 @@ export class UserComponent {
   onSelectUser() {
     console.log('clicked!');
     this.select.emit(this.id);
-
   }
 }
