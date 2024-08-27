@@ -1,5 +1,5 @@
 //Input: decorator, input: input function
-import { Component, computed, Input, input } from '@angular/core';
+import { Component, computed, EventEmitter, Input, input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -10,22 +10,18 @@ import { Component, computed, Input, input } from '@angular/core';
 
 
 export class UserComponent {
-  // @Input({ required: true }) avatar!: string;
-  // @Input({ required: true }) name!: string;
-  //Signal(InputSignal) container with type: input<string>
-  //InputSignal required: input.required().
-  name = input.required<string>();
-  avatar = input.required<string>();
+  @Input({ required: true }) id!: string;
+  @Input({ required: true }) avatar!: string;
+  @Input({ required: true }) name!: string;
+  @Output() select = new EventEmitter();
 
-  imagePath = computed(() => {
-    return '../../assets/users/' + this.avatar();
-  });
-  
-  // get imagePath() {
-  //   return '../../assets/users/' + this.avatar;
-  // }
+  get imagePath() {
+    return '../../assets/users/' + this.avatar;
+  }
 
   onSelectUser() {
     console.log('clicked!');
+    this.select.emit(this.id);
+
   }
 }
