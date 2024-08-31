@@ -35,7 +35,8 @@
       />
     </li>
   </ul>
-  <app-tasks [userName]="selectedUser.name"/>
+  <app-tasks [userName]="selectedUser?.name"/>
+  <!-- selectedUser?.name === selectedUser.name? selectedUser.name : '' -->
 </main>
 
 <!--

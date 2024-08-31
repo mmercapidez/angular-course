@@ -18,7 +18,7 @@ export class AppComponent {
 
   get selectedUser() {
     // The exclamation mark at the end indicates that there will never be a case of a user without that ID.
-    return this.users.find((user) => user.id === this.selectedUserId)!;
+    return this.users.find((user) => user.id === this.selectedUserId);
   }
 
   onSelectUser(id : string){
