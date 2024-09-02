@@ -14,7 +14,7 @@ import { TasksComponent } from './tasks/tasks.component';
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUserId = "u1";
+  selectedUserId?: string;
 
   get selectedUser() {
     // The exclamation mark at the end indicates that there will never be a case of a user without that ID.
