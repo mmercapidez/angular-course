@@ -2,23 +2,20 @@
 
 <main>
   <ul id="users">
-    <!--@for and @if are newer notations of angular 17 and 
-      ngFor and ngIf are structural directives -->
-    <!-- @for (user of users; track user.id) { -->
-      <li *ngFor="let user of users">
+    <!--@for and @if are newer notations of angular 17-->
+    @for (user of users; track user.id) {
+      <li>
         <app-user [user]="user" (select)="onSelectUser($event)" />
       </li>
-    <!--} -->
+    }
   </ul>
   <!-- @if (selectedUser) we check this becouse get selectedUser() return undefined 
     if not find the user with the id indecated   -->
-  <!-- @if (selectedUser) { -->
-    <app-tasks *ngIf="selectedUser; else fallback" [userName]="selectedUser!.name" />
-  <!-- } @else { -->
-  <ng-template #fallback>
+  @if (selectedUser) {
+    <app-tasks [userName]="selectedUser.name" />
+  } @else {
     <p id="fallback">Select a user for see their task!</p>
-  </ng-template>
-  <!-- } -->
+  }
   <!-- selectedUser?.name === selectedUser.name? selectedUser.name : '' -->
 </main>
 
