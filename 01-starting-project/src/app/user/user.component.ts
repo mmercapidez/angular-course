@@ -12,7 +12,7 @@ import { type User } from './user.model';
 
 export class UserComponent {
   @Input({ required: true }) user!: User;
-
+  @Input({ required: true }) selected!: boolean;
   //customize the generic type of the EventEmitter data 
   @Output() select = new EventEmitter<string>();
 
