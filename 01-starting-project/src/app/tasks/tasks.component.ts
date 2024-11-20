@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+
 import { TaskComponent } from "./task/task.component";
+import { DUMMY_TASKS } from "../dumm-data/dummy-tasks";
 
 @Component({
   selector: 'app-tasks',
@@ -10,5 +12,11 @@ import { TaskComponent } from "./task/task.component";
 })
 export class TasksComponent {
   //userName? === userName : string | undefined
-  @Input() userName?:string;
+  @Input({required:true}) selectedUserId!:string;
+  @Input({required:true}) userName!:string;
+  tasks = DUMMY_TASKS;
+
+  get selectedUserTasks() {
+    return this.tasks.filter((task) => task.userId == this.selectedUserId);
+  }
 }
