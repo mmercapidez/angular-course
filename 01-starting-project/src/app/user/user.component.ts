@@ -1,18 +1,6 @@
 //Input: decorator, input: input function
 import { Component, computed, EventEmitter, Input, input, output, Output } from '@angular/core';
-
-// Type aproch
-// type User = {
-//   id: string;
-//   avatar: string;
-//   name: string;
-// }
-// Interface aproach
-interface User {
-  id: string;
-  avatar: string;
-  name: string;
-}
+import { type User } from './user.model';
 
 @Component({
   selector: 'app-user',
